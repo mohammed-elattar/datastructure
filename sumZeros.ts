@@ -1,18 +1,16 @@
 // input is ordered 
-const sumZeros = (arr: number[]): number[] => {
-    let left = 0; 
-    let right = arr.length - 1;
-    while(left < right) {
-      console.log(arr[left], arr[right]);
-      const sum = arr[left] + arr[right];
-        if (sum === 0) return [arr[left], arr[right]];
-        if(sum > 0) { right-- } 
-        else left++;
+const countUniqueValues = (arr: number[]): number => {
+    let j = 0;
+    for(let i = 1; i< arr.length ; i++) {
+        if(arr[i] !== arr[j]) {
+            j++;
+            arr[j] = arr[i];
+        }
     }
 
-    return [0];
+    return j + 1;
 }
 
 
-console.log(sumZeros([-6, -2, 0, 1,2,3,4,5]));
+console.log(countUniqueValues([1,1,1,1,2,2,2,2,3,3,3,4,5,6,7,7,8,8,8,8,8]));
 
